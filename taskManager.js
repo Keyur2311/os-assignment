@@ -21,6 +21,29 @@ class taskManager {
         return newTask;
     }
 
+    // Function For Mark a task as completed
+    markTaskComplete(taskId) {
+        const task = this.tasks.find((t) => t.id === Number(taskId));
+        if (!task) {
+            throw new Error(`Task with ID ${taskId} does not exist.`);
+        }
+
+        task.completed = true;
+        return task;
+    }
+
+    // Function for delete a task
+    deleteTask(taskId) {
+        const taskIndex = this.tasks.findIndex((t) => t.id === Number(taskId));
+        if (taskIndex === -1) {
+            throw new Error(`Task with ID ${taskId} does not exist.`);
+        }
+
+        const [deletedTask] = this.tasks.splice(taskIndex, 1);
+        return deletedTask;
+    }
+
+
 }
 
 // export this class here
