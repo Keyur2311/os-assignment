@@ -4,7 +4,7 @@ class taskManager {
         this.currentId = 0; // Counter for auto-incremented IDs
     }
 
-    // Add a new task
+    // Function For Add a new task
     addTask(description, dueDate) {
         if (!description || !dueDate) {
             throw new Error('Description and due date are required to add a task.');
