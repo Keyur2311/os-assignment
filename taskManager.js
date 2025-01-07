@@ -43,6 +43,15 @@ class taskManager {
         return deletedTask;
     }
 
+    // Function To Filter  tasks (filtered by status)
+    listTasks(filterStatus = null) {
+        if (filterStatus === 'completed') {
+            return this.tasks.filter((t) => t.completed);
+        } else if (filterStatus === 'pending') {
+            return this.tasks.filter((t) => !t.completed);
+        }
+        return this.tasks;
+    }
 
 }
 
